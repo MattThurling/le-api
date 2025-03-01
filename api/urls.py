@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import get_message
+from .views import prompts_list
 
 urlpatterns = [
-    path('message/', get_message),
+  path('prompts/', prompts_list),
 ]
