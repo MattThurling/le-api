@@ -60,8 +60,10 @@ MIDDLEWARE = [
 
 # Allow Vue frontend to access Django API
 CORS_ALLOWED_ORIGINS = [
-    "https://yourdomain.com",  # Your Vue app domain
-    "http://localhost:5173",   # Local dev
+    "https://largeenglish.com",
+    "https://www.largeenglish.com",
+    "https://le-0c14.onrender.com", 
+    "http://localhost:5173",  
 ]
 
 ROOT_URLCONF = 'backend.urls'
