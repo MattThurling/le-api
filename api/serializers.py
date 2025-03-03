@@ -7,10 +7,10 @@ class PromptSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Prompt
-        fields = ["id", "title", "content", "image_url", "created_at"] 
+        fields = ["id", "title", "content", "image_url", "created_at"]  # ✅ Expose full image URL
 
     def get_image_url(self, obj):
-        request = self.context.get("request")
-        if obj.image:
-            return request.build_absolute_uri(obj.image.url) if request else f"{settings.STORAGE_ROOT_URL}{obj.image.url}"
-        return None
+        """Returns the full URL by concatenating STORAGE_ROOT_URL with the image filename."""
+        if obj.image:  # `obj.image` is just the filename string
+            return f"{settings.STORAGE_ROOT_URL}{obj.image}"
+        return None  # No image
