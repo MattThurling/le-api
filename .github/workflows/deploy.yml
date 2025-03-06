@@ -35,4 +35,5 @@ jobs:
             --image gcr.io/large-english/le-api \
             --platform managed \
             --region europe-west2 \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --set-env-vars DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} \
