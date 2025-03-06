@@ -4,3 +4,4 @@ gunicorn
 django-cors-headers
 psycopg2-binary
 python_dotenv
+dj_database_url
