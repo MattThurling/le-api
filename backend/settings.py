@@ -1,7 +1,6 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-import dj_database_url
 
 load_dotenv()
 
@@ -81,15 +80,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
-
-    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.tyhrsxhbrspczybeiptx',
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': 'aws-0-eu-west-2.pooler.supabase.com',
+        'PORT': 6543,
+        'OPTIONS': {
+            'sslmode': 'require'  
+        },
+    }
 }
 
-DATABASES["default"]["ENGINE"] = "django.db.backends.postgresql"
 
 
 # Password validation
