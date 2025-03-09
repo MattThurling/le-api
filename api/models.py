@@ -11,7 +11,7 @@ class Prompt(models.Model):
 
 class Page(models.Model):
   title = models.CharField(max_length=255)
-  slug = models.CharField(max_length=255)
+  slug = models.SlugField(unique=True)
   content = models.TextField()
   image = models.CharField(max_length=255)
   video = models.CharField(max_length=255)
