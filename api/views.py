@@ -31,6 +31,6 @@ def posts_list(request):
 @api_view(['GET'])
 def post_by_slug(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    serializer = PostSerializer(page)
+    serializer = PostSerializer(post)
     return Response(serializer.data)
 
