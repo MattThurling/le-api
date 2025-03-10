@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.conf import settings
-from .models import Prompt, Page
+from .models import Prompt, Page, Post
 
 
 class ImageURLMixin:
@@ -27,3 +27,12 @@ class PageSerializer(ImageURLMixin, serializers.ModelSerializer):
     class Meta:
         model = Page
         fields = ["id", "title", "slug", "content", "video", "image_url", "created_at"] 
+
+
+class PostSerializer(ImageURLMixin, serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Post
+        fields = ["id", "title", "slug", "content", "video", "image_url", "created_at"] 
+
