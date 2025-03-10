@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class Prompt(models.Model):
   title = models.CharField(max_length=255)
@@ -12,7 +13,7 @@ class Prompt(models.Model):
 class Page(models.Model):
   title = models.CharField(max_length=255)
   slug = models.SlugField(unique=True)
-  content = models.TextField()
+  content = HTMLField()
   image = models.CharField(max_length=255, null=True, blank=True)
   video = models.CharField(max_length=255, null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
@@ -23,7 +24,7 @@ class Page(models.Model):
 class Post(models.Model):
   title = models.CharField(max_length=255)
   slug = models.SlugField(unique=True)
-  content = models.TextField()
+  content = HTMLField()
   image = models.CharField(max_length=255, null=True, blank=True)
   video = models.CharField(max_length=255, null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)

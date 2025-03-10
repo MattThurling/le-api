@@ -31,8 +31,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'api'
+    'api',
+    'tinymce',
 ]
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 300,
+    'width': '100%',
+    'menubar': True,
+    'plugins': 'advlist autolink lists link image charmap print preview anchor',
+    'toolbar': 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+}   
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
